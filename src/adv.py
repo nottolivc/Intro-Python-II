@@ -36,8 +36,8 @@ the distance, but there is no way across the chasm.""", items['overlook']),
 to north. The smell of gold permeates the air.""", items['narrow']),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.""", items['treasure']),
+chamber! Gold bars are littered all over the grounds. You must pick up you can take, and come back. 
+The only exit is to the south.""", items['treasure']),
 }
 # Link rooms together
 

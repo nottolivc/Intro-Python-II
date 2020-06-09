@@ -9,11 +9,12 @@ class Player:
         self.inventory = []
 
     def __str__(self):
-        return f'{self.name} is in {self.location} with {self.items}.'
+        return f'{self.name} is in {self.location}.'
 
     def move(self, new_room):
-        print(f'\n{self.name} has switched rooms to {self.location}.')
+        # self.new_room = new_room
         self.location = new_room
+        print(f'\n{self.name} has switched rooms from {self.location}.')
 
     def get_item(self, item):
         for x in self.location.items:
