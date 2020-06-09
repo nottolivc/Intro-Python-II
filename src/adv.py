@@ -4,14 +4,6 @@ from item import Item
 
 # declare all items and rooms
 
-# inventory = {
-#     'sword': Item("Sword", "A Spanish Sword"),
-#     'gunpowder': Item("Gunpowder", "Keg of gunpowder"),
-#     'key': Item("Key", " key for something"),
-#     'knife': Item("Knife", "battle knife"),
-#     'matches': Item("Matches", "matches to light fire")
-# }
-
 items = {
     'outside': [Item("Sword", "A Spanish Sword")],
     'foyer': [Item("Key", " key for something")],
@@ -36,7 +28,7 @@ the distance, but there is no way across the chasm.""", items['overlook']),
 to north. The smell of gold permeates the air.""", items['narrow']),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Gold bars are littered all over the grounds. You must pick up what you can take, and come back. 
+chamber! Gold bars are littered all over the grounds. You must pick up what you can take, and come back.
 The only exit is to the south.""", items['treasure']),
 }
 # Link rooms together
@@ -54,15 +46,18 @@ room['treasure'].s_to = room['narrow']
 player = Player(input("What is your name? \n"), room['outside'])
 
 # Write a loop that:
+
 while True:
     # Prints the current room name
-    print(f"You are at: {player.location.name}, with {player.inventory} inventory. Keep going to find the treasure...")
+    print(f"You are at: {player.location} ")
     # Prints the current description (the textwrap module might be useful here).
-    print(player.location.description)
+    # print(player.location.description)
     print()
     # Waits for user input and decides what to do.
     user_input = input(
-        "Where do you want to go? (N)orth, (S)outh, (E)ast, or (W)est? Type GET -or- DROP to manage items. Or press (Q)uit: ")
+        "\nEnter a direction (N)orth,(E)ast,(S)outh,(W)est or Q to quit, type GET/DROP Item: ")
+    # handle multiple args
+    CHOICES = user_input.split(' ')
     # If the user enters a cardinal direction, attempt to move to the room there.
     if(user_input == 'n' or user_input == 'N'):
         target = player.location.n_to
@@ -73,19 +68,18 @@ while True:
     elif(user_input == 'w' or user_input == 'W'):
         target = player.location.w_to
     elif len(user_input) > 1:
-        if user_input.upper() == "GET":
-            player.get_item
-        elif user_input.upper() == "DROP":
-            player.drop_item
+        if CHOICES[0].upper() == "GET":
+            player.get_item(CHOICES[1].upper())
+        elif CHOICES[0].upper() == "DROP":
+            player.drop_item(CHOICES[1].upper())
         else:
             print("\nInvalid command.")
     # If the user enters "q", quit the game.
     elif(user_input == 'q' or user_input == 'Q'):
         break
-    else:
-        print("Invalid direction")
-    # Print an error message
     if(target != None):
         player.move(target)
+    else:
+        print("Invalid direction")
 
     print('\n')

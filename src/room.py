@@ -16,12 +16,12 @@ class Room:
             output += f'\n -- {i}'
         return output
 
-    # def add_item(self, item):
-    #     self.items.append(item)
-    #     print(f'{item.name} was added.')
+    def remove_item(self, item):
+        for i in self.items:
+            if i == item:
+                self.items.remove(item)
+                print(f'{i.name} was removed from {self.name}')
 
-    # def remove_item(self, item):
-    #     for i in self.items:
-    #         if i == item:
-    #             self.items.remove(item)
-    #             print(f'{i.name} was removed from {self.name}')
+    def add_item(self, item):
+        self.items.append(item)
+        print(f'{item.name} was dropped')
