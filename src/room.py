@@ -13,15 +13,15 @@ class Room:
     def __str__(self):
         output = f'Location: {self.name}\nDescription: {self.description}\nItems:'
         for i in self.items:
-            output += f'\n - {i}'
+            output += f'\n -- {i}'
         return output
 
-    def remove_item(self, item):
-        for i in self.items:
-            if i == item:
-                self.items.remove(item)
-                print(f'{i.name} was removed from {self.name}')
+    # def add_item(self, item):
+    #     self.items.append(item)
+    #     print(f'{item.name} was added.')
 
-    def add_item(self, item):
-        self.items.append(item)
-        print(f'{item.name} was added.')
+    # def remove_item(self, item):
+    #     for i in self.items:
+    #         if i == item:
+    #             self.items.remove(item)
+    #             print(f'{i.name} was removed from {self.name}')

@@ -36,7 +36,7 @@ the distance, but there is no way across the chasm.""", items['overlook']),
 to north. The smell of gold permeates the air.""", items['narrow']),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Gold bars are littered all over the grounds. You must pick up you can take, and come back. 
+chamber! Gold bars are littered all over the grounds. You must pick up what you can take, and come back. 
 The only exit is to the south.""", items['treasure']),
 }
 # Link rooms together
@@ -56,7 +56,7 @@ player = Player(input("What is your name? \n"), room['outside'])
 # Write a loop that:
 while True:
     # Prints the current room name
-    print(f"You are at: {player.location.name}, keep going to find the treasure...")
+    print(f"You are at: {player.location.name}, with {player.inventory} inventory. Keep going to find the treasure...")
     # Prints the current description (the textwrap module might be useful here).
     print(player.location.description)
     print()

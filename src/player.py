@@ -9,7 +9,7 @@ class Player:
         self.inventory = []
 
     def __str__(self):
-        return f'{self.name} is in {self.location}.'
+        return f'{self.name} is in {self.location} with {self.inventory}.'
 
     def move(self, new_room):
         # self.new_room = new_room
@@ -17,23 +17,11 @@ class Player:
         print(f'\n{self.name} has switched rooms from {self.location}.')
 
     def get_item(self, item):
-        for x in self.location.items:
-
-            if x.name.upper() == item:
-                self.location.remove_item(x)
-                self.inventory.append(x)
-                print(f'\n{self.name} has grabbed the {x.name}')
-
-            else:
-                print("Not available in this room.")
+        # self.location.remove_item(item)
+        self.inventory.append(item)
+        print(f'\n{self.name} has grabbed the {x.name}')
 
     def drop_item(self, item):
-        for x in self.inventory:
-
-            if x.name.upper() == item:
-                self.inventory.remove(x)
-                self.location.add_item(x)
-                print(f'\n{self.name} has dropped the {x.name}')
-
-            else:
-                print("Doesn't exist.")
+        self.inventory.remove(item)
+        # self.location.add_item(item)
+        print(f'\n{self.name} has dropped {x.name}')
