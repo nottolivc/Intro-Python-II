@@ -14,7 +14,7 @@ class Player:
     def move(self, new_room):
         # self.new_room = new_room
         self.location = new_room
-        print(f'\n{self.name} has switched rooms from {self.location}')
+        print(f'\n{self.name} has switched rooms from {self.location.name}')
 
     def get_item(self, item):
         for x in self.location.items:

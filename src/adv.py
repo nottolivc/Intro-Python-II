@@ -5,8 +5,8 @@ from item import Item
 # declare all items and rooms
 
 items = {
-    'outside': [Item("Sword", "A Spanish Sword")],
-    'foyer': [Item("Key", " key for something")],
+    'outside': [],
+    'foyer': [Item("Key", " key for something"), Item("Sword", "A Spanish Sword")],
     'overlook': [Item("Knife", "battle knife")],
     'narrow': [Item("Matches", "matches to light fire")],
     'treasure': [Item("Gold", "A chest of gold bars.")],
@@ -49,7 +49,7 @@ player = Player(input("What is your name? \n"), room['outside'])
 
 while True:
     # Prints the current room name
-    print(f"You are at: {player.location} ")
+    print(f"You are at: {player.location} \ninventory: {player.inventory}")
     # Prints the current description (the textwrap module might be useful here).
     # print(player.location.description)
     print()
