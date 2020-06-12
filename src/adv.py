@@ -43,13 +43,16 @@ room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
 # Declare player w input
-player = Player(input("What is your name? \n"), room['outside'])
+player = Player(
+    input("Welcome to treasure hunt...What is your name? \n"), room['outside'])
 
 # Write a loop that:
 
 while True:
     # Prints the current room name
-    print(f"You are at: {player.location} \ninventory: {player.inventory}")
+    print(f"{player.name} is at: {player.location} \ninventory:\n")
+    for i in player.inventory:
+        print(i)
     # Prints the current description (the textwrap module might be useful here).
     # print(player.location.description)
     print()

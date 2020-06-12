@@ -13,7 +13,7 @@ class Room:
     def __str__(self):
         output = f'Location: {self.name}\nDescription: {self.description}\nItems:'
         for i in self.items:
-            output += f'\n -- {i}'
+            output += f'\n * {i}'
         return output
 
     def remove_item(self, item):
